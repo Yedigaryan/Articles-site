@@ -1,0 +1,52 @@
+<div (window:resize)="onResize($event)" class="container">
+  <div class="nz-row">
+    <div nz-col [nzSpan]="searchSpan">
+      <label class="mb-8" for="search"><b>Filter by keywords</b></label>
+      <nz-input-group class="mb-50 input" [nzPrefix]="prefixIconSearch">
+        <input (change)="search()" [(ngModel)]="searchByWords" id="search" type="text" nz-input placeholder="input search text"/>
+      </nz-input-group>
+      <ng-template #prefixIconSearch>
+        <i nz-icon nzType="search"></i>
+      </ng-template>
+    </div>
+    <div nz-col nzSpan="12">
+
+    </div>
+    <div class="nz-row">
+      <p class="mb-0"><b>Results: {{(filteredArticles | filter: searchByWords).length}}</b></p>
+      <nz-divider></nz-divider>
+    </div>
+    <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
+      <div nz-col class="gutter-row" [nzSpan]="gridColumns" *ngFor="let article of filteredArticles | filter: searchByWords">
+        <div [routerLink]="['/article/', article.id]" class="inner-box">
+          <nz-card [nzType]="'inner'" nzHoverable class="ant-card-bordered" [style.position]="'relative'" [nzCover]="coverTemplate">
+            <nz-card-meta
+              [nzTitle]="title"
+              [nzDescription]="summary"
+            ></nz-card-meta>
+            <p class="more flex-center mt-50"><b>Read more </b>&nbsp;<img alt="arrow-right" src="assets/images/arrow-right.svg"></p>
+          </nz-card>
+          <ng-template #title>
+            <div class="flex-center mb-20">
+              <img [style.opacity]="0.6" src="assets/images/calendar.svg" alt="calendar">
+              <p class="article-date">{{article.publishedAt | date: 'mediumDate'}}</p>
+            </div>
+            <div class="card-template-title" [innerHTML]="article.title | textHighlight: searchByWords">
+
+            </div>
+          </ng-template>
+          <ng-template  #summary>
+            <div class="card-template-summary" [innerHTML]="article.summary | textHighlight: searchByWords">
+
+            </div>
+          </ng-template>
+          <ng-template #coverTemplate>
+            <img height="217px" [alt]="article.newsSite" [src]="article.imageUrl"/>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -3,9 +3,12 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Store-ngxs": {
+    "Articles-site": {
       "projectType": "application",
       "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
         "@schematics/angular:application": {
           "strict": true
         }
@@ -17,17 +20,23 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/store-ngxs",
+            "outputPath": "dist/articles-site",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+                "output": "/assets/"
+              }
             ],
             "styles": [
-              "src/styles.css"
+              "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -68,10 +77,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Store-ngxs:build:production"
+              "browserTarget": "Articles-site:build:production"
             },
             "development": {
-              "browserTarget": "Store-ngxs:build:development"
+              "browserTarget": "Articles-site:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +88,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Store-ngxs:build"
+            "browserTarget": "Articles-site:build"
           }
         },
         "test": {
@@ -94,7 +103,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
+              "src/styles.scss"
             ],
             "scripts": []
           }
@@ -102,5 +112,5 @@
       }
     }
   },
-  "defaultProject": "Store-ngxs"
+  "defaultProject": "Articles-site"
 }

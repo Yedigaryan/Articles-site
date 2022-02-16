@@ -1,0 +1,63 @@
+@import "src/assets/styles/helpers";
+.container {
+  padding: 50px 75px;
+
+  .flex-center {
+    display: flex;
+    align-items: center;
+  }
+
+  .more {
+    position: absolute;
+    left: 24px;
+    bottom: 20px;
+  }
+
+  .input {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+  }
+
+  .ant-divider-horizontal {
+    margin-top: 0;
+  }
+
+  .ant-card-bordered {
+    height: 530px;
+    width: 400px;
+    border-radius: 5px;
+  }
+
+  .inner-box {
+    //margin-right: 45px;
+    margin-bottom: 45px;
+  }
+
+  .article-date {
+    margin-left: 10px;
+    margin-bottom: 0;
+    color: #363636;
+    opacity: 0.6;
+    font-size: 14px;
+  }
+
+  ::ng-deep .ant-card-meta>.ant-card-meta-detail> {
+    .ant-card-meta-description>.card-template-summary {
+      height: 130px;
+    }
+    .ant-card-meta-title>.card-template-title>.highlight,
+    .ant-card-meta-description>.card-template-summary>.highlight{
+      background-color: yellow !important;
+      font-weight: bold;
+    }
+  }
+
+
+  @media screen and (max-width: 1000px){
+    .ant-row {
+      justify-content: center;
+    }
+  }
+}
+
+
