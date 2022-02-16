@@ -3,7 +3,7 @@
     <div nz-col [nzSpan]="searchSpan">
       <label class="mb-8" for="search"><b>Filter by keywords</b></label>
       <nz-input-group class="mb-50 input" [nzPrefix]="prefixIconSearch">
-        <input (change)="search()" [(ngModel)]="searchByWords" id="search" type="text" nz-input placeholder="input search text"/>
+        <input (input)="search()" [(ngModel)]="searchByWords" id="search" type="text" nz-input placeholder="input search text"/>
       </nz-input-group>
       <ng-template #prefixIconSearch>
         <i nz-icon nzType="search"></i>
