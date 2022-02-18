@@ -36,10 +36,10 @@ export class HomepageComponent implements OnInit {
   }
 
   public setColumnsOfGrid(width: number) {
-    if (width < 1000) {
-      this.gridColumns = 16;
+    if (width < 1100) {
+      this.gridColumns = 24;
       this.searchSpan = 24;
-    } else if (width < 1400) {
+    } else if (width < 1600) {
       this.searchSpan = 16;
       this.gridColumns = 12;
     } else {

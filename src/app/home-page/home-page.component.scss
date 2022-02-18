@@ -1,6 +1,9 @@
 @import "src/assets/styles/helpers";
+
 .container {
   padding: 50px 75px;
+  width: 87vw;
+
 
   .flex-center {
     display: flex;
@@ -41,23 +44,35 @@
     font-size: 14px;
   }
 
-  ::ng-deep .ant-card-meta>.ant-card-meta-detail> {
-    .ant-card-meta-description>.card-template-summary {
+  ::ng-deep .ant-card-meta > .ant-card-meta-detail > {
+    .ant-card-meta-description > .card-template-summary {
       height: 130px;
     }
-    .ant-card-meta-title>.card-template-title>.highlight,
-    .ant-card-meta-description>.card-template-summary>.highlight{
+
+    .ant-card-meta-title > .card-template-title > .highlight,
+    .ant-card-meta-description > .card-template-summary > .highlight {
       background-color: yellow !important;
       font-weight: bold;
     }
   }
+}
 
 
-  @media screen and (max-width: 1000px){
-    .ant-row {
-      justify-content: center;
+@media screen and (max-width: 1600px) {
+  .ant-row {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .container {
+    padding: 20px 25px;
+
+    .ant-card-bordered {
+      width: 100%;
     }
   }
 }
+
 
 
